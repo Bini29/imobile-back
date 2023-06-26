@@ -1,18 +1,34 @@
+"use client";
+
+import CreateCategoryForm from "@/components/CreateItems/CreateCategoryForm";
 import SignOut from "@/components/sign-out";
+import styles from "./page.module.css";
+import CreateCategoryItems from "@/components/CreateItems/CreateCategoryItems";
+import { useEffect, useState } from "react";
+import { log } from "console";
+import Categories from "@/components/ViewDataCategories/Categories";
 
 export default function Home() {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      fetch("/api/items/createcategory").then(async (res) => {
+        const categories = await res.json();
+        setCategories(categories);
+      });
+    };
+    fetchCategories();
+  }, []);
+
   return (
-    <div className="flex h-screen bg-black">
-      <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full max-w-screen-lg aspect-video"
-        ></iframe>
-        <SignOut />
+    <div className="cantainer">
+      <div className={styles.wrapperCategory}>
+        <CreateCategoryForm />
+        <CreateCategoryItems />
       </div>
+      <Categories />
+
+      <SignOut />
     </div>
   );
 }
