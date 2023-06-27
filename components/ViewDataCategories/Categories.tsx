@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Tabs, message, Button } from "antd";
-import CategoriesItems from "./CategoriesItems";
+import Brand from "./Brand";
 import { useStore } from "../../store";
 import { observer } from "mobx-react-lite";
 
@@ -27,7 +27,7 @@ const Categories = observer(() => {
             key: i.id,
             label: i.name,
             children: (
-              <CategoriesItems
+              <Brand
                 key={i.id}
                 id={i.id}
                 title={i.name}

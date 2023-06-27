@@ -4,12 +4,13 @@ import React from "react";
 import { Button, Form, Input, message, Space } from "antd";
 import { useStore } from "../../store";
 
-const CreateCategoryForm: React.FC = () => {
+const CategoryForm: React.FC = () => {
   const [form] = Form.useForm();
   const { store } = useStore();
+
   const onFinish = (values: any) => {
     console.log(values);
-    fetch("/api/items/createcategory", {
+    fetch("/api/items/category", {
       method: "POST",
       body: JSON.stringify(values),
     }).then((data) => {
@@ -46,4 +47,4 @@ const CreateCategoryForm: React.FC = () => {
   );
 };
 
-export default CreateCategoryForm;
+export default CategoryForm;

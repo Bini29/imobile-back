@@ -2,14 +2,17 @@ import { Button, Popconfirm, message } from "antd";
 import { toJS } from "mobx";
 import React, { FC, useState } from "react";
 import { useStore } from "store";
+import styles from "./styles.module.css";
 
-const CategoryView = ({
+const BrandView = ({
   id,
   title,
   items,
+  img,
 }: {
   id: Number;
   title: String;
+  img: String;
   items: [];
 }) => {
   const { store } = useStore();
@@ -24,7 +27,7 @@ const CategoryView = ({
   const confirm = (e: React.MouseEvent<HTMLElement>) => {
     setConfirmLoading(true);
 
-    fetch("/api/items/createcategoryitem", {
+    fetch("/api/items/brand", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -47,29 +50,33 @@ const CategoryView = ({
     setOpen(false);
   };
 
-  console.log(toJS(title));
+  console.log(toJS(img));
 
   if (title.length === 0) {
     return <div>Нету производителя</div>;
   }
   return (
     <div>
-      <Popconfirm
-        title="Удаление производителя"
-        description="Все товары удаляться"
-        onConfirm={confirm}
-        onCancel={cancel}
-        open={open}
-        okButtonProps={{ loading: confirmLoading }}
-        okText="Да"
-        cancelText="Нет"
-      >
-        <Button danger onClick={showPopconfirm}>
-          Удалить подкатегорию {title}
-        </Button>
-      </Popconfirm>
+      <div className={styles.btnimgcard}>
+        <img src={"/uploads/" + img} alt="" width={100} />
+
+        <Popconfirm
+          title="Удаление производителя"
+          description="Все товары удаляться"
+          onConfirm={confirm}
+          onCancel={cancel}
+          open={open}
+          okButtonProps={{ loading: confirmLoading }}
+          okText="Да"
+          cancelText="Нет"
+        >
+          <Button danger onClick={showPopconfirm}>
+            Удалить подкатегорию {title}
+          </Button>
+        </Popconfirm>
+      </div>
     </div>
   );
 };
 
-export default CategoryView;
+export default BrandView;

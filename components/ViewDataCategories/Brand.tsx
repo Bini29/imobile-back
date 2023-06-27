@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import { Button, message, Popconfirm, Tabs } from "antd";
 import { useStore } from "../../store";
-import CategoryView from "./CategoryView";
 import styles from "./styles.module.css";
 import { toJS } from "mobx";
+import BrandView from "./BrandView";
 
-const CategoriesItems = ({
+const Brand = ({
   id,
   title,
   items = [],
@@ -27,7 +27,7 @@ const CategoriesItems = ({
   const confirm = (e: React.MouseEvent<HTMLElement>) => {
     setConfirmLoading(true);
 
-    fetch("/api/items/createcategory", {
+    fetch("/api/items/category", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -72,22 +72,25 @@ const CategoriesItems = ({
       {items.length > 0 ? (
         <Tabs
           defaultActiveKey="1"
-          items={items.map((i: { items: []; id: Number; name: String }) => {
-            console.log(toJS(i));
+          items={items.map(
+            (i: { items: []; id: Number; name: String; img: String }) => {
+              console.log(toJS(i));
 
-            return {
-              key: i.id,
-              label: i.name,
-              children: (
-                <CategoryView
-                  key={i.id}
-                  id={i.id}
-                  title={i.name}
-                  items={items}
-                />
-              ),
-            };
-          })}
+              return {
+                key: i.id,
+                label: i.name,
+                children: (
+                  <BrandView
+                    key={i.id}
+                    id={i.id}
+                    title={i.name}
+                    items={items}
+                    img={i.img}
+                  />
+                ),
+              };
+            }
+          )}
           onChange={onChange}
         />
       ) : (
@@ -97,4 +100,4 @@ const CategoriesItems = ({
   );
 };
 
-export default CategoriesItems;
+export default Brand;

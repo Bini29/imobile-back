@@ -6,14 +6,14 @@ import { PlusOutlined } from "@ant-design/icons";
 import { useStore } from "../../store";
 import { observer } from "mobx-react";
 
-const CreateCategoryItems: React.FC = observer(() => {
+const BrandForm: React.FC = observer(() => {
   const [form] = Form.useForm();
   const { store } = useStore();
 
   const onFinish = (values: any) => {
     console.log(values);
 
-    fetch("/api/items/createcategoryitem", {
+    fetch("/api/items/brand", {
       method: "POST",
       body: JSON.stringify(values),
     }).then((data) => {
@@ -29,7 +29,9 @@ const CreateCategoryItems: React.FC = observer(() => {
         });
     });
   };
-
+  const upload = (e) => {
+    console.log(e);
+  };
   return (
     <Form form={form} layout="vertical" onFinish={onFinish} autoComplete="off">
       <Form.Item
@@ -50,12 +52,20 @@ const CreateCategoryItems: React.FC = observer(() => {
           })}
         </Select>
       </Form.Item>
-      <Upload action="/upload.do" listType="picture-card">
-        <div>
-          <PlusOutlined />
-          <div style={{ marginTop: 8 }}>Загрузить</div>
-        </div>
-      </Upload>
+      <Form.Item name="img" label="Изображение (только 1)" required>
+        <Upload
+          onChange={upload}
+          maxCount={1}
+          multiple={false}
+          action="/api/upload"
+          listType="picture-card"
+        >
+          <div>
+            <PlusOutlined />
+            <div style={{ marginTop: 8 }}>Загрузить</div>
+          </div>
+        </Upload>
+      </Form.Item>
       <Form.Item>
         <Space>
           <Button type="primary" htmlType="submit">
@@ -67,4 +77,4 @@ const CreateCategoryItems: React.FC = observer(() => {
   );
 });
 
-export default CreateCategoryItems;
+export default BrandForm;

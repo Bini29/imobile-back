@@ -22,22 +22,31 @@ model User {
 model Category {
   id        Int @id @default(autoincrement())
   name      String
-  items     CategoryItem[]
+  items     Brand[]
 }
 
-model CategoryItem {
+model Brand {
   id           Int @id @default(autoincrement())
   name         String
   img          String
   category     Category @relation(fields: [categoryId], references: [id])
   categoryId   Int
-  items        ItemIphone[]
+  items        Model[]
 }
 
-model ItemIphone {
+model Model {
     id   Int @id @default(autoincrement())
     name String
     img  String
-    categoryItem  CategoryItem@relation(fields: [categoryItemId], references: [id])
-    categoryItemId Int
+    brandItem  Brand @relation(fields: [brandId], references: [id])
+    brandId Int
+    items Item[]
+}
+
+model Item {
+  id   Int @id @default(autoincrement())
+  name String
+  img  String[]
+  brand Model@relation(fields: [brandId], references:[id])
+  brandId Int
 }

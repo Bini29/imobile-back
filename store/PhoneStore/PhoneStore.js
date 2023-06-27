@@ -461,7 +461,7 @@ const PhoneStore = () => {
     categories: [],
 
     setCategories: async function () {
-      const categoriesP = await fetch("/api/items/createcategory").then(
+      const categoriesP = await fetch("/api/items/category").then(
         async (res) => {
           return await res.json();
         }
