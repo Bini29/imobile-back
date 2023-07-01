@@ -28,7 +28,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+    console.log("Failesd:", errorInfo);
   };
   return (
     <Fm
