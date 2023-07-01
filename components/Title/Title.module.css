@@ -1,0 +1,32 @@
+.title {
+  margin: 0;
+  padding: 81px 0px 100px 0px;
+  background: linear-gradient(
+    95.84deg,
+    #ffffff 2.06%,
+    #aea0ff 46.55%,
+    #550033 113.47%,
+    #950c5e 172.66%
+  );
+
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 80px;
+
+  text-align: left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.wrapper {
+  background: linear-gradient(269.26deg, #000000 -1.29%, #11072e 91.08%);
+}
+@media (max-width: 1000px) {
+  .title {
+    font-size: 38px;
+    text-align: center;
+    line-height: initial;
+    padding: 50px 20px;
+  }
+}

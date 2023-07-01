@@ -14,6 +14,7 @@ const Categories = observer(() => {
     console.log(key);
   };
   useEffect(() => {
+    store.setModels();
     store.setCategories();
   }, []);
 
@@ -27,12 +28,7 @@ const Categories = observer(() => {
             key: i.id,
             label: i.name,
             children: (
-              <Brand
-                key={i.id}
-                id={i.id}
-                title={i.name}
-                items={i.items}
-              />
+              <Brand key={i.id} id={i.id} title={i.name} items={i.items} />
             ),
           };
         }

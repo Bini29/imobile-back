@@ -6,6 +6,31 @@
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  border: 1px dashed #d9d9d9;
+  border: 1px solid #ccc;
   border-radius: 8px;
+  min-height: 150px;
+}
+.cardrow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  padding: 5px;
+  padding-top: 40px;
+}
+.card {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card .ant-card-body {
+  padding: 10px 0px;
+}
+.cardbody {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

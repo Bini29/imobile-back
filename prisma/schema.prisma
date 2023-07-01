@@ -47,6 +47,26 @@ model Item {
   id   Int @id @default(autoincrement())
   name String
   img  String[]
-  brand Model@relation(fields: [brandId], references:[id])
-  brandId Int
+  prise Int
+  brand Model@relation(fields: [modelId], references:[id])
+  modelId Int
+  items Feature[]
+  variations Variatons[]
+}
+
+model Feature {
+  id      Int @id @default(autoincrement())
+  name    String
+  value   String
+  item    Item@relation(fields: [itemId], references:[id])
+  itemId  Int
+}
+
+model Variatons {
+  id      Int @id @default(autoincrement())
+  title   String
+  images  String[]
+  memory  String[]
+  item    Item@relation(fields: [itemId], references:[id])
+  itemId  Int
 }

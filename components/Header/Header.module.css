@@ -1,0 +1,167 @@
+.header {
+  background: linear-gradient(90.01deg, #1a1249 10.34%, #050312 99.99%);
+
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+}
+.nav {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navwrapper {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logoDesk {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.adress {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17px;
+  color: #ffffff;
+}
+.adress b {
+  color: #2d64f2;
+  font-weight: normal;
+}
+.adressBot {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #969696;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav {
+}
+.nav a {
+  padding: 0px 12px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+.about {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.about a {
+  display: flex;
+  align-items: center;
+}
+.aboutBtn {
+  padding: 13px 12px 14px 12px;
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  background: linear-gradient(265.54deg, #2d64f2 15.89%, #4ea0ec 89.32%);
+  border-radius: 10px;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  box-shadow: 0px 23px 11px -21px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: none;
+}
+
+.mobLogo {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .mobLogo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .mobLogo div a {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+
+    color: #ffffff;
+  }
+  .mobLogo div {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobLogo div span {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+
+    color: #a8a8a8;
+  }
+  .nav {
+    flex-wrap: wrap;
+
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .logo {
+    display: none;
+  }
+  .navwrapper {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  .logoDesk {
+    /* padding-right: 20px; */
+    padding-top: 30px;
+    text-align: center;
+  }
+  .about {
+    height: 48px;
+    margin-top: 20px;
+  }
+  .aboutBtn {
+    align-items: center;
+    padding: 6px 12px 6px 12px;
+  }
+  .header {
+    background: #000000;
+  }
+  .moblilink {
+    list-style: none;
+    padding-left: 20px;
+  }
+  .moblilink li {
+    padding: 5px 12px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}

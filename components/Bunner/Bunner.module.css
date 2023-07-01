@@ -1,0 +1,105 @@
+.bunner {
+  background: linear-gradient(137.33deg, #000000 23.98%, #250764 109.62%);
+  min-height: 975px;
+}
+.title {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 80px;
+  margin: 0;
+  padding-top: 100px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.title span {
+  background: linear-gradient(
+      98.67deg,
+      #6b53fc 49.79%,
+      #aea0ff 58.71%,
+      #b32a7c 71.18%,
+      #482680 93.86%
+    ),
+    linear-gradient(0deg, #ffffff, #ffffff);
+
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 106px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  text-align: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bunnerPhone {
+  display: flex;
+  justify-content: center;
+}
+.item {
+  position: relative;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #1c0f35;
+  /* filter: blur(1px); */
+  padding-left: 40px;
+  border-radius: 25px;
+  height: 140px;
+}
+.item img {
+  position: absolute;
+  max-width: 150px;
+  left: -66px;
+}
+.bunnerList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 86px;
+  padding: 20px 80px;
+}
+.wrapperList {
+  background: #000000;
+}
+@media (max-width: 1000px) {
+  .title {
+    font-size: 40px;
+    line-height: 43px;
+  }
+  .title span {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 55px;
+  }
+  .bunnerPhone img {
+    width: 100%;
+    height: auto;
+  }
+  .bunnerList {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 120px 10px 90px 10px;
+
+    gap: 100px;
+  }
+  .item {
+    padding-left: 0;
+    justify-content: end;
+    height: 144px;
+
+    text-align: center;
+    flex-direction: column;
+  }
+  .item img {
+    position: absolute;
+    left: initial;
+    top: -95px;
+  }
+}

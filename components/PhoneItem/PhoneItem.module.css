@@ -1,0 +1,92 @@
+.phone {
+  background: #ffffff;
+  border-radius: 25px;
+  padding-top: 48px;
+  padding-bottom: 28px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.3s;
+  box-shadow: 0px 14px 4px -6px rgba(0, 0, 0, 0.14);
+}
+.phone:hover {
+  transform: scale(1.01);
+  border: 1px solid #ccc;
+}
+.phone img {
+  width: auto;
+  max-height: 300px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 20px;
+}
+.title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #000000;
+}
+.prise {
+  padding-top: 18px;
+  padding-bottom: 21px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #281a7e;
+}
+.curentspanitem {
+  padding-left: 5px;
+}
+.btn {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-decoration-line: underline;
+  color: #0fb40b;
+}
+@media (max-width: 1000px) {
+  .phone {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-bottom: 0;
+  }
+  .phone div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .prise {
+    padding-bottom: 0;
+    font-size: 20px;
+  }
+  .phone img {
+    margin: 0;
+    max-height: 100px;
+  }
+  .btn {
+    display: none;
+  }
+}

@@ -21,6 +21,8 @@
     "next": "^13.4.2",
     "next-auth": "^4.22.1",
     "react": "^18.2.0",
+    "react-burger-menu": "^3.0.9",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "uuid": "^9.0.0"

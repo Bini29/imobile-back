@@ -1,0 +1,50 @@
+.bunner {
+  background: linear-gradient(137.33deg, #000000 23.98%, #250764 109.62%);
+  padding: 30px 0px;
+}
+.bunner p {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ffffff;
+}
+.bunnerWrapper {
+  display: flex;
+  align-items: center;
+}
+.img {
+  max-width: 560px;
+}
+@media (max-width: 1000px) {
+  .bunnerWrapper {
+    align-items: center;
+    justify-content: center;
+  }
+  .bunner {
+    padding: 100px 0px;
+  }
+  .bunner p {
+    max-width: 303px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    text-align: center;
+
+    color: #ffffff;
+  }
+  .img {
+    display: none;
+  }
+  .desk img {
+  }
+  .desk {
+    text-align: center;
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+}

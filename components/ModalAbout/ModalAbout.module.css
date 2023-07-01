@@ -1,0 +1,134 @@
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(
+    188.51deg,
+    rgba(22, 4, 59, 0.6) -0.71%,
+    rgba(0, 0, 0, 0.6) 91.72%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  z-index: 1000;
+  /* transition: 0.5s; */
+}
+.modal.active {
+  transform: scale(1);
+}
+
+.modal__content {
+  position: relative;
+  max-width: 715px;
+  width: 100%;
+
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 58px;
+
+  transform: scale(0);
+  transition: 0.2s;
+  background-image: url(../../assets/aboutmodalbg.jpg);
+}
+.active .modal__content {
+  transform: scale(1);
+}
+.content {
+  width: 100%;
+}
+.closeBtn {
+  display: none;
+}
+.title {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 46px;
+  margin: 0;
+
+  text-align: center;
+}
+.title span {
+  background: linear-gradient(90.46deg, #1d228d 6.87%, #d01791 76.58%);
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 46px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.form {
+  max-width: 447px;
+  margin: 0 auto;
+  margin-top: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.form input {
+  color: black;
+}
+.aboutBtn {
+  max-width: 238px;
+  padding: 16px 34px 15px 34px;
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  background: linear-gradient(265.54deg, #2d64f2 15.89%, #4ea0ec 89.32%);
+  border-radius: 10px;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  box-shadow: 0px 23px 11px -21px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: none;
+}
+.pers {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  /* or 125% */
+
+  text-align: center;
+  text-decoration-line: underline;
+
+  color: rgba(40, 26, 126, 0.38);
+}
+@media (max-width: 1000px) {
+  .closeBtn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    display: block;
+    z-index: 1000;
+  }
+  .modal__content {
+    flex-wrap: wrap;
+    padding: 21px;
+    width: 95%;
+    gap: 20px;
+    overflow: auto;
+  }
+  .imgwrapper img {
+    width: 100% !important;
+    height: auto;
+  }
+  .imgwrapperbottom img {
+    width: 100%;
+    max-height: 60px;
+    height: auto !important;
+  }
+}
