@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./List.module.css";
 import PhoneItem from "../PhoneItem/PhoneItem";
@@ -7,100 +8,103 @@ import Modal from "../Modal/Modal";
 import { observer } from "mobx-react-lite";
 import { Spin, Input } from "antd";
 import phonesImg from "../../assets/phones.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Tabs } from "antd";
+import ListWiew from "./ListWiew";
 
 const List = observer(() => {
-  let navigate = useNavigate();
-  let location = useLocation();
   const { store } = useStore();
   const [title, settitle] = useState("");
   const [val, setVal] = useState(0);
   const [val2, setVal2] = useState(0);
   console.log(store.categories);
-
   useEffect(() => {
-    console.log(toJS(store.list));
-    let a = store.list.map((i) => {
-      return i.category;
-    });
+    store.setCategories();
+    store.setModels();
+  }, []);
+  // useEffect(() => {
+  //   console.log(toJS(store.list));
+  //   let a = store.categories.map((i) => {
+  //     return i.category;
+  //   });
 
-    let categories = new Set(a);
-    console.log(categories);
-    let categoriesImg = [...categories].map((i) => {
-      let items = store.list.filter((j) => {
-        return i === j.category;
-      });
-      let minPrise = items.sort((a, b) => b.minprise - a.minprise);
-      minPrise.reverse();
-      console.log(items[0].mainImage);
-      return {
-        name: i,
-        img: items[0].mainImage,
-        minprise: minPrise[0].minprise,
-        list: items,
-      };
-    });
+  //   let categories = new Set(a);
+  //   console.log(categories);
+  //   let categoriesImg = [...categories].map((i) => {
+  //     let items = store.list.filter((j) => {
+  //       return i === j.category;
+  //     });
+  //     let minPrise = items.sort((a, b) => b.minprise - a.minprise);
+  //     minPrise.reverse();
+  //     console.log(items[0].mainImage);
+  //     return {
+  //       name: i,
+  //       img: items[0].mainImage,
+  //       minprise: minPrise[0].minprise,
+  //       list: items,
+  //     };
+  //   });
 
-    store.setcategories(categoriesImg);
-    // setCategories(categoriesImg);
-  }, [store.list]);
+  //   store.setcategories(categoriesImg);
+  //   // setCategories(categoriesImg);
+  // }, [store.list]);
 
   // console.log(JSON.stringify(store.list));
-  const clear = () => {
-    let a = store.list.map((i) => {
-      return i.category;
-    });
+  // const clear = () => {
+  //   let a = store.list.map((i) => {
+  //     return i.category;
+  //   });
 
-    let categories = new Set(a);
-    console.log(categories);
-    let categoriesImg = [...categories].map((i) => {
-      let items = store.list.filter((j) => {
-        return i === j.category;
-      });
-      let minPrise = items.sort((a, b) => b.minprise - a.minprise);
-      minPrise.reverse();
-      console.log(items[0].mainImage);
-      return {
-        name: i,
-        img: items[0].mainImage,
-        minprise: minPrise[0].minprise,
-        list: items,
-      };
-    });
+  //   let categories = new Set(a);
+  //   console.log(categories);
+  //   let categoriesImg = [...categories].map((i) => {
+  //     let items = store.list.filter((j) => {
+  //       return i === j.category;
+  //     });
+  //     let minPrise = items.sort((a, b) => b.minprise - a.minprise);
+  //     minPrise.reverse();
+  //     console.log(items[0].mainImage);
+  //     return {
+  //       name: i,
+  //       img: items[0].mainImage,
+  //       minprise: minPrise[0].minprise,
+  //       list: items,
+  //     };
+  //   });
 
-    store.setcategories(categoriesImg);
-  };
-  const filtBtn = () => {
-    let a = store.list.map((i) => {
-      return i.category;
-    });
-    let categories = new Set(a);
+  //   store.setcategories(categoriesImg);
+  // };
+  // const filtBtn = () => {
+  //   let a = store.list.map((i) => {
+  //     return i.category;
+  //   });
+  //   let categories = new Set(a);
 
-    let categoriesImg = [...categories].map((i) => {
-      let items = store.list.filter((j) => {
-        return i === j.category;
-      });
-      let minPrise = items.sort((a, b) => b.minprise - a.minprise);
-      minPrise.reverse();
-      console.log(items[0].mainImage);
-      return {
-        name: i,
-        img: items[0].mainImage,
-        minprise: minPrise[0].minprise,
-        list: items,
-      };
-    });
+  //   let categoriesImg = [...categories].map((i) => {
+  //     let items = store.list.filter((j) => {
+  //       return i === j.category;
+  //     });
+  //     let minPrise = items.sort((a, b) => b.minprise - a.minprise);
+  //     minPrise.reverse();
+  //     console.log(items[0].mainImage);
+  //     return {
+  //       name: i,
+  //       img: items[0].mainImage,
+  //       minprise: minPrise[0].minprise,
+  //       list: items,
+  //     };
+  //   });
 
-    let cat = categoriesImg.filter((i) => {
-      if (i.minprise > val && i.minprise < val2) {
-        return true;
-      }
-    });
-    store.setcategories(cat);
-  };
+  //   let cat = categoriesImg.filter((i) => {
+  //     if (i.minprise > val && i.minprise < val2) {
+  //       return true;
+  //     }
+  //   });
+  //   store.setcategories(cat);
+  // };
+
   return (
     <div className={styles.list} id="contact-us">
-      <div className="container">
+      {/* <div className="container">
         <h1 className={styles.title}>Смартфоны</h1>
         <div className={styles.navigation}>
           {location.pathname === "/categories" && (
@@ -151,10 +155,21 @@ const List = observer(() => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       <div className="container">
-        {location.pathname === "/categories" && !store.catshow && (
+        <Tabs
+          defaultActiveKey="1"
+          items={store.categories.map((i, index) => {
+            const id = String(index + 1);
+            return {
+              label: <h1 className={styles.title}>{i.name}</h1>,
+              key: id,
+              children: <ListWiew item={i} />,
+            };
+          })}
+        />
+        {/* {location.pathname === "/categories" && !store.catshow && (
           <div className={styles.filter}>
             <p>Цена:</p>
             <div>
@@ -182,9 +197,9 @@ const List = observer(() => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
 
-        <div className={styles.navPhonesList}>
+        {/* <div className={styles.navPhonesList}>
           {location.pathname === "/categories" &&
             !store.catshow &&
             store.categories?.map((i) => {
@@ -202,14 +217,13 @@ const List = observer(() => {
                 </div>
               );
             })}
-        </div>
-        {/* <h1 className={styles.title}>Популярные модели</h1> */}
-        <div className={styles.itemList}>
-          {/* {items.length > 0 ? null : <Spin size="large" />} */}
+        </div> */}
+
+        {/* <div className={styles.itemList}>
           {store.items.map((i) => (
             <PhoneItem key={i.name} props={i} />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

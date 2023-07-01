@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./Bunner.module.css";
 import bunner from "../../assets/bunnerPhone.png";
@@ -5,6 +6,7 @@ import item1 from "../../assets/item1.png";
 import item2 from "../../assets/item2.png";
 import item3 from "../../assets/item3.png";
 import Slider from "../Slider/Slider";
+import Image from "next/image";
 const Bunner = () => {
   return (
     <div className={styles.bunner}>
@@ -13,20 +15,21 @@ const Bunner = () => {
         <div className="container">
           <div className={styles.bunnerList}>
             <div className={styles.item}>
-              <img src={item1} alt="" />
+              <Image src={item1} />
+
               <p>
                 Гарантия <br />
                 <b> 12 месяцев</b>
               </p>
             </div>
             <div className={styles.item}>
-              <img src={item2} alt="" />
+              <Image src={item2} />
               <p>
                 <b> Аксессуары</b> <br />В подарок
               </p>
             </div>
             <div className={styles.item}>
-              <img src={item3} alt="" />
+              <Image src={item3} />
               <p>
                 Выгодный <br />
                 <b> Кредит</b>

@@ -1,10 +1,11 @@
+"use client";
 import React from "react";
 import logo from "../../assets/logo.svg";
 import styles from "./Footer.module.css";
 import wats from "../../assets/watsapp.png";
 import phone from "../../assets/phone.svg";
 import CustomLink from "../CustomLink/CustomLink";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useStore } from "../../store";
 const Footer = () => {
   const { store } = useStore();
@@ -13,8 +14,8 @@ const Footer = () => {
       <div className="container">
         <div className={styles.nav}>
           <div className={styles.logo}>
-            <Link to={"/"}>
-              <img src={logo} alt="" />
+            <Link href={"/"}>
+              <img src={logo.src} alt="" />
             </Link>
             <div className={styles.logoDesk}>
               <span className={styles.adress}>
@@ -49,10 +50,10 @@ const Footer = () => {
           </nav>
           <div className={styles.about}>
             <a href="">
-              <img src={wats} alt="" />
+              <img src={wats.src} alt="" />
             </a>
             <button onClick={() => store.show()} className={styles.aboutBtn}>
-              <img src={phone} alt="" /> Заказать звонок
+              <img src={phone.src} alt="" /> Заказать звонок
             </button>
           </div>
         </div>

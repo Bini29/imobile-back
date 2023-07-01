@@ -1,29 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Modal.module.css";
 import { ZoomInOutlined, CloseOutlined } from "@ant-design/icons";
 import { toJS } from "mobx";
 import phone from "../../assets/phone.svg";
 import { Image } from "antd";
 import { useStore } from "../../store";
-const Modal = ({ active, setActive, props }) => {
-  const [currentItem, setCurrentItem] = useState(props.variatons[0]);
-  const [size, setSize] = useState(currentItem.memory[0]);
+import { observer } from "mobx-react";
+
+const Modal = observer(({ active, setActive, props }) => {
   const [visible, setVisible] = useState(false);
-  const [numberColor, setNumberColor] = useState(0);
-  const [numberSize, setNumberSize] = useState(0);
+  const [features, setfeatures] = useState([]);
   const { store } = useStore();
   const credit = () => {
     window.poscreditServices(
       "creditProcess",
       111423,
       {
-        order: props.name + " " + currentItem.title,
+        order: props.name,
         products: [
           {
             id: props.id,
-            name: props.name + " " + currentItem.title,
-            category: "iphone",
-            price: Number(size.prise),
+            name: props.name,
+            category: props.name,
+            price: props.price,
           },
         ],
         creditTermFrom: 6,
@@ -38,6 +37,21 @@ const Modal = ({ active, setActive, props }) => {
       }
     );
   };
+  useEffect(() => {
+    fetch("/api/items/feature", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "X-ID": props.id,
+      },
+    })
+      .then(async (res) => {
+        res.json().then((d) => {
+          setfeatures(d);
+        });
+      })
+      .catch(() => {});
+  }, []);
   return (
     <div
       className={[styles.modal, active && styles.active].join(" ")}
@@ -65,7 +79,7 @@ const Modal = ({ active, setActive, props }) => {
             }}
             rootClassName={styles.imgwrapper}
             width={"100%"}
-            src={currentItem.images[0]}
+            src={"/uploads/" + props.img[0]}
             onClick={() => setVisible(true)}
           />
           <div className={styles.slider}>
@@ -73,17 +87,18 @@ const Modal = ({ active, setActive, props }) => {
               preview={{
                 visible,
                 onVisibleChange: (vis) => setVisible(vis),
+                onChange: (current, prev) =>
+                  console.log(`current index: ${current}, prev index: ${prev}`),
               }}
             >
-              {currentItem.images.map((i) => {
+              {props.img.map((i) => {
                 return (
                   <Image
                     preview={{
-                      visible: false,
                       mask: <ZoomInOutlined style={{ fontSize: 32 }} />,
                     }}
                     rootClassName={styles.imgwrapperbottom}
-                    src={i}
+                    src={"/uploads/" + i}
                   />
                 );
               })}
@@ -93,10 +108,24 @@ const Modal = ({ active, setActive, props }) => {
         <div className={styles.content}>
           <div className={styles.titleblock}>
             <h2>{props.name}</h2>
-            <span onClick={() => store.show()}>Написать продавцу</span>
+            {/* <span onClick={() => store.show()}>Написать продавцу</span> */}
           </div>
-
           <div className={styles.colors}>
+            <span>Характеристики:</span>
+            <div className={styles.featurelist}>
+              {features.map((i) => {
+                return (
+                  <div>
+                    <span>
+                      <b>{i.name}</b>
+                    </span>
+                    <span>{i.value}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {/* <div className={styles.colors}>
             <span>Выбор цвета: {currentItem.title}</span>
             <div className={styles.colors_select}>
               {props.variatons.map((i, index) => {
@@ -157,8 +186,8 @@ const Modal = ({ active, setActive, props }) => {
                 );
               })}
             </div>
-          </div>
-          <span className={styles.prise}>{size.prise} руб</span>
+          </div> */}
+          <span className={styles.prise}>{props.prise} руб</span>
           <div className={styles.buttons}>
             <button className={styles.aboutBtn} onClick={() => store.show()}>
               <img src={phone} alt="" /> Заказать товар
@@ -171,6 +200,6 @@ const Modal = ({ active, setActive, props }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Modal;

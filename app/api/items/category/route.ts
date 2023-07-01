@@ -36,7 +36,12 @@ export async function DELETE(req: any) {
   const head = req.headers;
 
   const head_token = head.get("x-id");
-  const deleteUsers = await prisma.category.deleteMany({
+  const deleteBrand = await prisma.brand.deleteMany({
+    where: {
+      categoryId: Number(head_token),
+    },
+  });
+  const deleteUsers = await prisma.category.delete({
     where: {
       id: Number(head_token),
     },

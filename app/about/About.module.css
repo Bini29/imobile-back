@@ -1,0 +1,159 @@
+.desk {
+  background: #dbf2ff;
+  position: relative;
+  padding-top: 56px;
+  padding-bottom: 144px;
+  background: no-repeat;
+  background-image: url(../../assets/deskbfabout.png);
+
+  background-position: bottom;
+}
+.team {
+  background-image: url(../../assets/bgabutlist.png);
+  background-size: cover;
+}
+.deskD {
+  padding-left: 445px;
+}
+.deskD h2 {
+  margin: 0;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 80px;
+  /* identical to box height, or 167% */
+
+  color: #000000;
+  padding-bottom: 26px;
+}
+.deskD p {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: #000000;
+}
+.img {
+  position: absolute;
+  top: 100px;
+}
+.team h2 {
+  max-width: 738px;
+  margin: 0 auto;
+
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 66px;
+}
+.teamList {
+  margin-top: 55px;
+  padding-bottom: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.teamList div {
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.teamList div p {
+  padding-top: 15px;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+.tituls {
+  background-color: #dbf2ff;
+}
+.titulsBtn {
+  padding-top: 82px;
+  padding-bottom: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #000000;
+}
+.aboutBtn {
+  padding: 13px 12px 14px 12px;
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  background: #0fb40b;
+  border-radius: 10px;
+  border: none;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #ffffff;
+}
+.titulsDesk {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  /* or 130% */
+  padding-bottom: 63px;
+
+  text-align: center;
+
+  color: #000000;
+}
+.sert {
+  display: block;
+  width: 100%;
+  max-width: 1165px;
+  margin: 0 auto;
+  padding-bottom: 97px;
+}
+.teamList {
+  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  .deskD {
+    padding: 20px;
+
+    text-align: center;
+  }
+  .deskD h2 {
+    line-height: initial;
+    font-size: 32px;
+  }
+  .titulsBtn {
+    padding-top: 0px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .img {
+    display: none;
+    width: 100%;
+    height: auto;
+    top: 0;
+    position: relative;
+  }
+}

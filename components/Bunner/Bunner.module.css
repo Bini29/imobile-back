@@ -40,7 +40,7 @@
 }
 .item {
   position: relative;
-  font-family: "Montserrat";
+  font-family: var(--font-inter);
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -58,6 +58,7 @@
 .item img {
   position: absolute;
   max-width: 150px;
+  height: auto;
   left: -66px;
 }
 .bunnerList {

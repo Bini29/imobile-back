@@ -1,16 +1,15 @@
 .list {
   background: #c8f8ff;
+  min-height: 60vh;
 }
 .title {
   margin: 0;
   padding-top: 84px;
-
-  padding-bottom: 20px;
   font-family: "Gotham";
   font-style: normal;
   font-weight: 500;
-  font-size: 48px;
-  line-height: 80px;
+  font-size: 24px;
+
   text-align: center;
 
   color: #202020;
@@ -30,6 +29,7 @@
 .cardPhoneBtn {
   max-width: 250px;
   width: 100%;
+  min-height: 312px;
   background: #ffffff;
   border-radius: 25px;
   padding-top: 18px;
@@ -42,7 +42,7 @@
   padding-right: 20px;
 }
 .cardPhoneBtn p {
-  font-family: "Montserrat";
+  font-family: var(--font-inter);
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -63,11 +63,12 @@
   color: #000000;
   text-align: center;
   padding-left: 80px;
+  padding-top: 30px;
   padding-bottom: 40px;
 }
 .navigation span {
   cursor: pointer;
-  font-family: "Montserrat";
+  font-family: var(--font-inter);
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -77,9 +78,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 0px 80px;
-  padding-bottom: 40px;
+  gap: 30px;
 }
 .navPhonesList img {
   max-width: 100%;
@@ -156,7 +157,8 @@
     justify-content: space-around;
     align-items: center;
     max-width: 100%;
-    margin-bottom: 20px;
+    min-height: auto;
+    /* margin-bottom: 20px; */
     padding-top: 10px;
     padding-bottom: 10px;
   }

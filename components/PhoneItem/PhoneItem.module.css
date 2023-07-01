@@ -21,10 +21,13 @@
   padding-bottom: 20px;
 }
 .title {
-  font-family: "Montserrat";
+  font-family: var(--font-inter);
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
+  min-height: 48px;
+  text-align: center;
+  padding: 0 30px;
   line-height: 24px;
   display: flex;
   align-items: center;
@@ -35,7 +38,7 @@
 .prise {
   padding-top: 18px;
   padding-bottom: 21px;
-  font-family: "Montserrat";
+  font-family: var(--font-inter);
   font-style: normal;
   font-weight: 600;
   font-size: 24px;

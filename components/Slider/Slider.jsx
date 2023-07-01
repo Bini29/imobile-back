@@ -10,9 +10,10 @@ import mbg3 from "../../assets/mbg3.jpg";
 import arrow from "../../assets/Arrow.svg";
 import { useStore } from "../../store";
 import { isMobile } from "react-device-detect";
+import Image from "next/image";
 const Slider = () => {
   const { store } = useStore();
-
+  console.log(bg2);
   const scroll = () => {
     const section = document.querySelector("#contact-us");
 
@@ -25,13 +26,13 @@ const Slider = () => {
           Встречайте новый <br /> <span>Iphone 14</span>
         </h1>
         <div className={styles.bunnerPhone}>
-          <img src={bunner} alt="" />
+          <Image src={bunner} />
         </div>
       </div>
       <div className={styles.sliderItem}>
         <div
           className={styles.sliderwrapper}
-          style={{ backgroundImage: `URL(${isMobile ? mbg2 : bg2})` }}
+          style={{ backgroundImage: `URL(${isMobile ? mbg2.src : bg2.src})` }}
         >
           <div className="container">
             <h1 className={styles.title2}>
@@ -43,7 +44,7 @@ const Slider = () => {
               className={styles.aboutBtn}
               style={{ padding: "20px 45px 19px 33px" }}
             >
-              Посмотреть <img src={arrow} alt="" />
+              Посмотреть <Image src={arrow} />
             </button>
           </div>
         </div>
@@ -51,7 +52,7 @@ const Slider = () => {
       <div className={styles.sliderItem}>
         <div
           className={styles.sliderwrapper}
-          style={{ backgroundImage: `URL(${isMobile ? mbg3 : bg3})` }}
+          style={{ backgroundImage: `URL(${isMobile ? mbg3.src : bg3.src})` }}
         >
           <div className="container">
             <h1 className={styles.title3}>
@@ -64,13 +65,13 @@ const Slider = () => {
               Разделите сумму на части и платите <br /> комфортным для вас
               платежом
             </p>
-            {isMobile ? <img src={mbg1} alt="" /> : null}
+            {isMobile ? <Image src={mbg1} /> : null}
             <button
               className={styles.aboutBtn}
               style={{ padding: "20px 65px 19px 65px" }}
               onClick={() => store.show()}
             >
-              Купить <img src={arrow} alt="" />
+              Купить <Image src={arrow} />
             </button>
           </div>
         </div>

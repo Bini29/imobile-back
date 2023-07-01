@@ -1,0 +1,60 @@
+.garanty {
+  background-color: #dbf2ff;
+  padding-top: 56px;
+  padding-bottom: 87px;
+}
+.garanty h2 {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 80px;
+  text-align: center;
+  color: #000000;
+}
+.garanty p {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: #000000;
+}
+.garantydesk {
+  padding-bottom: 83px;
+}
+.garantydesk span {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 80px;
+  color: #000000;
+}
+.garantydesk ul {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  color: #000000;
+  list-style: disc;
+  padding-left: 25px;
+}
+@media (max-width: 1000px) {
+  .garanty {
+    padding: 0 20px;
+    text-align: center;
+  }
+  .garantydesk span {
+    line-height: initial;
+  }
+  .garanty h2 {
+    line-height: initial;
+    margin: 0;
+    padding-top: 30px;
+    font-size: 32px;
+    line-height: inherit;
+  }
+}

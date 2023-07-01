@@ -1,0 +1,59 @@
+.contact {
+  background-color: #dbf2ff;
+  padding-top: 132px;
+  padding-bottom: 184px;
+}
+.map {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mapdesk span {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 80px;
+  /* identical to box height, or 167% */
+
+  color: #000000;
+  padding-bottom: 30px;
+}
+.mapdesk p {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #000000;
+}
+.mapdesk a {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 1000px) {
+  .mapdesk span {
+    line-height: initial;
+    font-size: 32px;
+  }
+  .mapdesk a {
+    justify-content: center;
+  }
+  .contact {
+    padding-top: 20px;
+  }
+  .map {
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 30px;
+    padding: 0px 10px;
+  }
+}

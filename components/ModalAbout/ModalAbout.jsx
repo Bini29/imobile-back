@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import styles from "./ModalAbout.module.css";
 import { CloseOutlined } from "@ant-design/icons";

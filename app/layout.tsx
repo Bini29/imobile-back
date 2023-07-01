@@ -5,26 +5,24 @@ import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
 import { Suspense } from "react";
-
-const inter = Inter({
+import styles from "../public/font/stylesheet.module.css";
+import { Montserrat } from "next/font/google";
+import Header from "../components/Header/Header";
+import ModalAbout from "../components/ModalAbout/ModalAbout";
+import Footer from "../components/Footer/Footer";
+import Script from "next/script";
+const inter = Montserrat({
   variable: "--font-inter",
-  subsets: ["latin"],
+  weight: "400",
+  subsets: ["cyrillic"],
 });
 
-const title = "Next.js Prisma Postgres Auth Starter";
-const description =
-  "This is a Next.js starter kit that uses Next-Auth for simple email + password login and a Postgres database to persist the data.";
+const title = "iMobile";
+const description = "";
 
 export const metadata: Metadata = {
   title,
   description,
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-  },
-  metadataBase: new URL("https://nextjs-postgres-auth.vercel.app"),
-  themeColor: "#FFF",
 };
 
 export default async function RootLayout({
@@ -34,13 +32,17 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Script src="//api.b2pos.ru/shop/v2/connect.js" />
       <body className={inter.variable}>
         <Toaster />
         <Suspense fallback="Loading...">
+          <Header />
           {/* @ts-expect-error Async Server Component */}
-          <AuthStatus />
+          {/* <AuthStatus /> */}
+          {children}
+          <Footer />
         </Suspense>
-        {children}
+        <ModalAbout />
       </body>
     </html>
   );

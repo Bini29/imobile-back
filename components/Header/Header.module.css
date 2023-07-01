@@ -47,7 +47,7 @@
 }
 .nav a {
   padding: 0px 12px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
@@ -92,7 +92,7 @@
     gap: 16px;
   }
   .mobLogo div a {
-    font-family: "Montserrat";
+    font-family: var(--font-inter);
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -106,7 +106,7 @@
     flex-direction: column;
   }
   .mobLogo div span {
-    font-family: "Montserrat";
+    font-family: var(--font-inter);
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -155,7 +155,7 @@
   }
   .moblilink li {
     padding: 5px 12px;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;

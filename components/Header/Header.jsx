@@ -57,7 +57,7 @@ const Header = observer(() => {
         <div className={styles.navwrapper}>
           <div className={styles.mobLogo}>
             <Link href={"/"}>
-              <img src={logoMob} alt="" />
+              <img src={logoMob.src} alt="" />
             </Link>
             <div>
               <a href="tel:+79199731997">+7 (919) 973-19-97</a>
@@ -66,7 +66,7 @@ const Header = observer(() => {
           </div>
           <div className={styles.logo}>
             <Link href={"/"}>
-              <img src={logo} alt="" />
+              <img src={logo.src} alt="" />
             </Link>
             <div className={styles.logoDesk}>
               <span className={styles.adress}>
@@ -92,7 +92,7 @@ const Header = observer(() => {
                     store.setItemsCat([]);
                     store.setTitle("");
                   }}
-                  href="/"
+                  to="/"
                 >
                   Каталог
                 </CustomLink>
@@ -120,15 +120,15 @@ const Header = observer(() => {
                   )}
                 </ul> */}
 
-                <CustomLink onClick={() => setOpen(false)} href="/about">
+                <CustomLink onClick={() => setOpen(false)} to="/about">
                   О компании
                 </CustomLink>
 
-                <CustomLink onClick={() => setOpen(false)} href="/garanty">
+                <CustomLink onClick={() => setOpen(false)} to="/garanty">
                   Гарантия и сервис
                 </CustomLink>
 
-                <CustomLink onClick={() => setOpen(false)} href="/contacts">
+                <CustomLink onClick={() => setOpen(false)} to="/contacts">
                   Контакты
                 </CustomLink>
               </nav>
@@ -144,13 +144,13 @@ const Header = observer(() => {
                 </div>
                 <div className={styles.about}>
                   <a href="">
-                    <img src={wats} alt="" />
+                    <img src={wats.src} alt="" />
                   </a>
                   <button
                     onClick={() => store.show()}
                     className={styles.aboutBtn}
                   >
-                    <img src={phone} alt="" /> Заказать звонок
+                    <img src={phone.src} alt="" /> Заказать звонок
                   </button>
                 </div>
               </div>
@@ -158,7 +158,8 @@ const Header = observer(() => {
           ) : (
             <>
               <nav className={styles.nav}>
-                {store.list.length > 0 ? (
+                <CustomLink to="/">Каталог</CustomLink>
+                {/* {store.list.length > 0 ? (
                   <Dropdown
                     menu={{
                       items,
@@ -168,26 +169,26 @@ const Header = observer(() => {
                   </Dropdown>
                 ) : (
                   <Spin size="large" />
-                )}
+                )} */}
 
-                <CustomLink href="/about">О компании</CustomLink>
+                <CustomLink to="/about">О компании</CustomLink>
 
                 {/* <CustomLink href="/credits">Кредиты</CustomLink> */}
 
-                <CustomLink href="/garanty">Гарантия и сервис</CustomLink>
+                <CustomLink to="/garanty">Гарантия и сервис</CustomLink>
 
-                <CustomLink href="/contacts">Контакты</CustomLink>
+                <CustomLink to="/contacts">Контакты</CustomLink>
               </nav>
 
               <div className={styles.about}>
                 <a href="">
-                  <img src={wats} alt="" />
+                  <img src={wats.src} alt="" />
                 </a>
                 <button
                   onClick={() => store.show()}
                   className={styles.aboutBtn}
                 >
-                  <img src={phone} alt="" /> Заказать звонок
+                  <img src={phone.src} alt="" /> Заказать звонок
                 </button>
               </div>
             </>

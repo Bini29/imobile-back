@@ -9,14 +9,14 @@ const FuterBunner = () => {
       <div className="container">
         <div className={styles.bunnerWrapper}>
           <div className={styles.desk}>
-            <img src={logo} alt="" width="321" />
+            <img src={logo.src} alt="" width="321" />
             <p>
               Нам интересно то что мы делаем, поэтому мы находимся в курсе
               текущих тенденций бизнеса и рынка, в итоге каждый довольный
               Покупатель гордость для любого работника компании.
             </p>
           </div>
-          <img className={styles.img} src={img} alt="" />
+          <img className={styles.img} src={img.src} alt="" />
         </div>
       </div>
     </div>

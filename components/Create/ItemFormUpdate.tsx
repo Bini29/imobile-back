@@ -22,16 +22,8 @@ import { toJS } from "mobx";
 
 const ItemFormUpdate = ({ props, open }: any) => {
   const [form] = Form.useForm();
-  const [name, setname] = useState(props.name);
   const { store } = useStore();
-  const [formatHex, setFormatHex] = useState<ColorPickerProps["format"]>("hex");
-  const [colorHex, setColorHex] = useState<Color | string>(props.color);
   const [fileList, setFileList] = useState<UploadFile[]>([]);
-
-  const hexString = useMemo(
-    () => (typeof colorHex === "string" ? colorHex : colorHex.toHexString()),
-    [colorHex]
-  );
 
   console.log(toJS(props.name));
 
@@ -129,7 +121,7 @@ const ItemFormUpdate = ({ props, open }: any) => {
       <Form.Item>
         <Space>
           <Button type="primary" htmlType="submit">
-            Добавить
+            Изменить
           </Button>
         </Space>
       </Form.Item>
