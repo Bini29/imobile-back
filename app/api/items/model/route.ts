@@ -38,9 +38,9 @@ export async function DELETE(req: any) {
   const head = req.headers;
 
   const head_token = head.get("x-id");
-  const deleteItems = await prisma.model.deleteMany({
+  const deleteItems = await prisma.item.deleteMany({
     where: {
-      id: Number(head_token),
+      modelId: Number(head_token),
     },
   });
   const deleteUsers = await prisma.model.delete({
