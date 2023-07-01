@@ -7,14 +7,16 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const session = await getServerSession();
   if (session) {
-    const { name } = await req.json();
-    const category = await prisma.model.create({
+    const { name, brandId, img } = await req.json();
+    const model = await prisma.model.create({
       data: {
         name: name,
+        img: img.file.response.name,
+        brandId: brandId,
       },
     });
 
-    return NextResponse.json(category);
+    return NextResponse.json(model);
   } else {
     return NextResponse.json(
       { error: "Internal Server Error" },
@@ -36,7 +38,12 @@ export async function DELETE(req: any) {
   const head = req.headers;
 
   const head_token = head.get("x-id");
-  const deleteUsers = await prisma.model.deleteMany({
+  const deleteItems = await prisma.model.deleteMany({
+    where: {
+      id: Number(head_token),
+    },
+  });
+  const deleteUsers = await prisma.model.delete({
     where: {
       id: Number(head_token),
     },
