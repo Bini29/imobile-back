@@ -24,31 +24,13 @@ const Header = observer(() => {
     setOpen(state.isOpen);
     return state.isOpen;
   };
-  const items = store.categories.map((i, index) => {
-    return {
-      label: (
-        <span
-          onClick={() => {
-            store.setItemsCat(i.list);
-            store.setTitle(i.name);
-            store.setShowCat(true);
-            navigate("/categories");
-            scroll();
-          }}
-        >
-          {i.name}
-        </span>
-      ),
-      key: index,
-    };
-  });
 
   const scroll = () => {
     const section = document.querySelector("#contact-us");
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
-      navigate("/categories");
+      // navigate("/categories");
     }
   };
   return (
@@ -88,9 +70,9 @@ const Header = observer(() => {
               <nav className={styles.nav}>
                 <CustomLink
                   onClick={() => {
-                    setOpen(false);
-                    store.setItemsCat([]);
-                    store.setTitle("");
+                    // setOpen(false);
+
+                    scroll();
                   }}
                   to="/"
                 >
@@ -158,7 +140,9 @@ const Header = observer(() => {
           ) : (
             <>
               <nav className={styles.nav}>
-                <CustomLink to="/">Каталог</CustomLink>
+                <CustomLink to="/" onClick={() => scroll()}>
+                  Каталог
+                </CustomLink>
                 {/* {store.list.length > 0 ? (
                   <Dropdown
                     menu={{
