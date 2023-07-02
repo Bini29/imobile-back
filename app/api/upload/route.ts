@@ -53,7 +53,11 @@ export async function POST(request: NextRequest, res: any) {
     const finalFilePath =
       "http://localhost:3000/images/" + `${relativeUploadDir}/${filename}`;
     return NextResponse.json(
-      { done: "ok", name: finalFilePath, httpfilepath: finalFilePath },
+      {
+        done: "ok",
+        name: `/images/${relativeUploadDir}/${filename}`,
+        httpfilepath: finalFilePath,
+      },
       { status: 200 }
     );
   } catch (e) {
