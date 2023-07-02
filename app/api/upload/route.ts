@@ -20,7 +20,7 @@ export async function POST(request: NextRequest, res: any) {
 
   const buffer = Buffer.from(await file.arrayBuffer());
 
-  const pathDist: string = join(process.cwd(), "/public/images");
+  const pathDist: string = "/var/www/html/images";
   const relativeUploadDir = `${dateFn.format(Date.now(), "dd-MM-Y")}`;
   const uploadDir = join(pathDist, relativeUploadDir);
 
