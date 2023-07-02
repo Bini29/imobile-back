@@ -55,6 +55,8 @@
 }
 .navPhones {
   padding: 0px 80px;
+  display: flex;
+  gap: 40px;
 }
 .navigation {
   display: flex;

@@ -24,6 +24,7 @@ const ModelForm: React.FC = observer(() => {
         .then((d) => {
           message.success(`Успешно создана модель ${d.name}`);
           form.resetFields();
+          store.setCategories();
           store.setModels();
         })
         .catch(() => {
