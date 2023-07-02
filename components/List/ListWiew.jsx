@@ -46,7 +46,7 @@ const ListWiew = observer(({ item }) => {
                   setTitle(j.name);
                 }}
               >
-                <img src={"/uploads/" + j.img} alt="" />
+                <img src={j.img} alt="" />
                 <p>{j.name}</p>
               </div>
             );
@@ -67,7 +67,7 @@ const ListWiew = observer(({ item }) => {
                   setTitleModel(i.name);
                 }}
               >
-                <img src={"/uploads/" + i.img} alt="" />
+                <img src={i.img} alt="" />
                 <p>{i.name}</p>
               </div>
             );

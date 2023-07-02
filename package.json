@@ -13,6 +13,7 @@
     "@types/react": "^18.0.25",
     "antd": "^5.6.2",
     "bcrypt": "^5.1.0",
+    "date-fns": "^2.30.0",
     "formidable": "^3.4.0",
     "fs": "^0.0.1-security",
     "mobx": "^6.9.0",

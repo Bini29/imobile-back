@@ -5,7 +5,7 @@ import { useStore } from "store";
 import styles from "./styles.module.css";
 import { observer } from "mobx-react";
 import ItemForm from "../Create/ItemForm";
-
+import img from "../../public/images/02-07-2023/phones_1688311941862_526297474.png";
 import Item from "./Item";
 
 const { Meta } = Card;
@@ -36,6 +36,7 @@ const ModelView = observer(
     const handleOk = () => {
       setIsModalOpen(false);
     };
+    console.log(img);
 
     const handleCancel = () => {
       setIsModalOpen(false);
@@ -74,7 +75,7 @@ const ModelView = observer(
     return (
       <div>
         <div className={styles.btnimgcard}>
-          <img src={"/uploads/" + img} alt="" width={100} />
+          <img src={img} alt="" width={100} />
           {items.length === 0 && (
             <Popconfirm
               title="Удаление модели"

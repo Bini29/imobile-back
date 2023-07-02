@@ -77,9 +77,7 @@ const Item = observer(({ props }: any) => {
     <>
       <Card
         className={styles.card}
-        cover={
-          <img width={"99%"} alt="example" src={"/uploads/" + props.img[0]} />
-        }
+        cover={<img width={"99%"} alt="example" src={props.img[0]} />}
         actions={[
           <EditOutlined
             key={props.id + " edit"}

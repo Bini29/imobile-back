@@ -38,7 +38,7 @@ const ItemFormUpdate = ({ props, open }: any) => {
         name: "image.png",
         status: "done",
         response: { name: i },
-        url: "/uploads/" + i,
+        url: i,
       };
     });
     setFileList(imgList);

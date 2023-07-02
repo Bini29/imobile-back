@@ -18,7 +18,7 @@ const PhoneItem = ({ props }) => {
   return (
     <>
       <div className={styles.phone} onClick={() => click()}>
-        <img src={"/uploads/" + props.img[0]} alt="" />
+        <img src={props.img[0]} alt="" />
         <div>
           <span className={styles.title}>{props.name}</span>
           <span className={styles.prise}> {props.prise + " " + "₽"}</span>

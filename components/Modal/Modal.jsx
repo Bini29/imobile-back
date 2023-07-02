@@ -79,7 +79,7 @@ const Modal = observer(({ active, setActive, props }) => {
             }}
             rootClassName={styles.imgwrapper}
             width={"100%"}
-            src={"/uploads/" + props.img[0]}
+            src={props.img[0]}
             onClick={() => setVisible(true)}
           />
           <div className={styles.slider}>
@@ -98,7 +98,7 @@ const Modal = observer(({ active, setActive, props }) => {
                       mask: <ZoomInOutlined style={{ fontSize: 32 }} />,
                     }}
                     rootClassName={styles.imgwrapperbottom}
-                    src={"/uploads/" + i}
+                    src={i}
                   />
                 );
               })}

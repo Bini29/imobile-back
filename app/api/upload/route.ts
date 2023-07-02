@@ -1,37 +1,66 @@
-import { writeFile } from "fs/promises";
+import { extname, join } from "path";
+import { stat, mkdir, writeFile } from "fs/promises";
+import * as dateFn from "date-fns";
 import { NextRequest, NextResponse } from "next/server";
-import { v4 } from "uuid";
-import fs from "fs/promises";
 
-export async function POST(request: NextRequest) {
-  const data = await request.formData();
-  const uuid = v4();
-  const file: File | null = data.get("file") as unknown as File;
+function sanitizeFilename(filename: string): string {
+  return filename.replace(/[^a-zA-Z0-9_\u0600-\u06FF.]/g, "_");
+}
 
+export async function POST(request: NextRequest, res: any) {
+  const formData = await request.formData();
+
+  const file = formData.get("file") as Blob | null;
   if (!file) {
-    return NextResponse.json({ success: false });
+    return NextResponse.json(
+      { error: "File blob is required." },
+      { status: 400 }
+    );
   }
 
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  file.type;
-  console.log(file.type);
+  const buffer = Buffer.from(await file.arrayBuffer());
 
-  // filename: function (req, file, cb) {
-  //   cb(null, file.fieldname + "-" + Date.now()+".jpg")
-  // }
-  // With the file data in the buffer, you can do whatever you want with it.
-  // For this, we'll just write it to the filesystem in a new location
-  const path = `../static/uploads/${uuid + file.name}`;
+  const pathDist: string = join(process.cwd(), "/public/images");
+  const relativeUploadDir = `${dateFn.format(Date.now(), "dd-MM-Y")}`;
+  const uploadDir = join(pathDist, relativeUploadDir);
 
   try {
-    await fs.readdir("../static/uploads/");
-    await writeFile(path, buffer);
-  } catch (error) {
-    await fs.mkdir("../static/uploads/");
-    await writeFile(path, buffer);
+    await stat(uploadDir);
+  } catch (e: any) {
+    if (e.code === "ENOENT") {
+      await mkdir(uploadDir, { recursive: true });
+    } else {
+      console.error(
+        "Error while trying to create directory when uploading a file\n",
+        e
+      );
+      return NextResponse.json(
+        { error: "Something went wrong." },
+        { status: 500 }
+      );
+    }
   }
-  console.log(`open ${path} to see the uploaded file`);
 
-  return NextResponse.json({ success: true, name: uuid + file.name });
+  try {
+    const uniqueSuffix = `${Date.now()}_${Math.round(Math.random() * 1e9)}`;
+    const fileExtension = extname(file.name);
+    const originalFilename = file.name.replace(/\.[^/.]+$/, "");
+    const sanitizedFilename = sanitizeFilename(originalFilename);
+    const filename = `${sanitizedFilename}_${uniqueSuffix}${fileExtension}`;
+    console.log("filename : " + filename);
+    await writeFile(`${uploadDir}/${filename}`, buffer);
+
+    const finalFilePath =
+      "http://localhost:3000/images/" + `${relativeUploadDir}/${filename}`;
+    return NextResponse.json(
+      { done: "ok", name: finalFilePath, httpfilepath: finalFilePath },
+      { status: 200 }
+    );
+  } catch (e) {
+    console.error("Error while trying to upload a file\n", e);
+    return NextResponse.json(
+      { error: "Something went wrong." },
+      { status: 500 }
+    );
+  }
 }

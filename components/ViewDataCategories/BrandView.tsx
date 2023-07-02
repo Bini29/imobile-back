@@ -57,7 +57,7 @@ const BrandView = observer(
     return (
       <div>
         <div className={styles.btnimgcard}>
-          <img src={"/uploads/" + img} alt="" width={100} />
+          <img src={img} alt="" width={100} />
 
           {items.length === 0 && (
             <Popconfirm
