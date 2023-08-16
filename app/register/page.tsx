@@ -1,5 +1,6 @@
+import FormRegister from "@/components/FormRegister/formRegister";
 import Image from "next/image";
-import Form from "@/components/form";
+
 import Link from "next/link";
 
 export default function Login() {
@@ -19,10 +20,11 @@ export default function Login() {
           </Link>
           <h3 className="text-xl font-semibold">Sign Up</h3>
           <p className="text-sm text-gray-500">
-            Create an account with your email and password
+            Create an account with your email and password23
           </p>
         </div>
-        <Form type="register" />
+
+        <FormRegister type="register" />
       </div>
     </div>
   );

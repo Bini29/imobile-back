@@ -1,0 +1,19 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/opengraph-image.png/route": "app/opengraph-image.png/route.js",
+  "/about/page": "app/about/page.js",
+  "/garanty/page": "app/garanty/page.js",
+  "/login/page": "app/login/page.js",
+  "/protected/page": "app/protected/page.js",
+  "/register/page": "app/register/page.js",
+  "/contacts/page": "app/contacts/page.js",
+  "/api/upload/route": "app/api/upload/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/items/category/route": "app/api/items/category/route.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/api/items/model/route": "app/api/items/model/route.js",
+  "/api/items/brand/route": "app/api/items/brand/route.js",
+  "/api/items/feature/route": "app/api/items/feature/route.js",
+  "/api/items/item/route": "app/api/items/item/route.js"
+}

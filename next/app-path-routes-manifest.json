@@ -1,0 +1,19 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/opengraph-image.png/route": "/opengraph-image.png",
+  "/about/page": "/about",
+  "/garanty/page": "/garanty",
+  "/login/page": "/login",
+  "/protected/page": "/protected",
+  "/register/page": "/register",
+  "/contacts/page": "/contacts",
+  "/api/upload/route": "/api/upload",
+  "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",
+  "/api/items/category/route": "/api/items/category",
+  "/api/auth/register/route": "/api/auth/register",
+  "/api/items/model/route": "/api/items/model",
+  "/api/items/brand/route": "/api/items/brand",
+  "/api/items/feature/route": "/api/items/feature",
+  "/api/items/item/route": "/api/items/item"
+}

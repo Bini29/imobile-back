@@ -23,7 +23,7 @@ const Slider = () => {
     <Carousel effect="fade">
       <div className={styles.sliderItem}>
         <h1 className={styles.title}>
-          Встречайте новый <br /> <span>Iphone 14</span>
+          Встречайте новый <br /> <span>iPhone 14</span>
         </h1>
         <div className={styles.bunnerPhone}>
           <Image src={bunner} />
@@ -36,13 +36,20 @@ const Slider = () => {
         >
           <div className="container">
             <h1 className={styles.title2}>
-              Огромный <br /> <span>ассортимент</span>
+              Огромный{" "}
+              <span>
+                <b> ассортимент</b>
+              </span>
               <br /> товаров
             </h1>
             <button
               onClick={scroll}
               className={styles.aboutBtn}
-              style={{ padding: "20px 45px 19px 33px" }}
+              style={{
+                padding: "20px 45px 19px 33px",
+                margin: "0 auto",
+                marginTop: "45px",
+              }}
             >
               Посмотреть <Image src={arrow} />
             </button>
